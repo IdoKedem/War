@@ -135,7 +135,7 @@ namespace IdoKedem1
                 return p1;
 
             p1.War();
-            p2.War();
+            p2.War(); 
 
             return RoundWinner(p1, p2);
         }
