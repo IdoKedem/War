@@ -1,7 +1,12 @@
 using System;
 
-namespace IdoKedem1
+namespace War
 {
+    class Globals
+    {
+        public static bool stopGame = false;
+    }
+
     class Player
     {
         private static Random r1 = new Random();
@@ -130,12 +135,18 @@ namespace IdoKedem1
             Console.WriteLine();
 
             if (LastValue(p1.GetHand()) + 1 < 3) // has less than 3 cards
+            {
+                Globals.stopGame = true;
                 return p2;
+            }
             if (LastValue(p2.GetHand()) + 1 < 3)
+            {
+                Globals.stopGame = true;
                 return p1;
+            }
 
             p1.War();
-            p2.War(); 
+            p2.War();
 
             return RoundWinner(p1, p2);
         }
@@ -167,7 +178,7 @@ namespace IdoKedem1
             Console.WriteLine("Game Start! ");
             Console.WriteLine();
 
-            while (LastValue(p1.GetHand()) >= 0 && LastValue(p2.GetHand()) >= 0)
+            while (LastValue(p1.GetHand()) >= 0 && LastValue(p2.GetHand()) >= 0 && !Globals.stopGame)
             {
                 p1.OpenCard();
                 p2.OpenCard();
