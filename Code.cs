@@ -1,18 +1,20 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace War
 {
     class Globals
-    {
-        public static bool stopGame = false;
-    }
+    { public static bool stopGame = false; }
 
     class Player
     {
         private static Random r1 = new Random();
 
         private int[] hand = new int[104];
-        private int[] table = new int[52];
+        private int[] table = new int[104];
         private string name;
 
         public Player(string name)
